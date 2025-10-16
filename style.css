@@ -1,0 +1,199 @@
+/*
+ * ------------------------------------
+ * Estilos Gerais e Configuração
+ * ------------------------------------
+ */
+
+/* Aplica o box-sizing globalmente para facilitar o cálculo de larguras e paddings */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta de Cores Roxo */
+    --cor-primaria: #6a0dad; /* Roxo Escuro Principal */
+    --cor-secundaria: #8a2be2; /* Roxo Médio/Azul-violeta */
+    --cor-fundo: #f0e6ff; /* Roxo Muito Claro (Lavanda) para o fundo */
+    --cor-fundo-card: #ffffff; /* Fundo Branco para cartões */
+    --cor-texto: #333333; /* Texto Escuro */
+    --cor-borda: #ccc;
+    --cor-sucesso: #4CAF50;
+    --cor-erro: #dc3545;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: var(--cor-primaria);
+    padding: 20px 0;
+    margin-bottom: 0;
+    background-color: var(--cor-fundo-card); /* Usando variável para o fundo branco */
+    border-bottom: 3px solid var(--cor-secundaria);
+}
+
+h2 {
+    color: var(--cor-secundaria);
+    /* MELHORIA: Usar uma cor mais visível para o sublinhado do h2 */
+    border-bottom: 2px solid var(--cor-borda); 
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--cor-borda);
+    margin: 40px auto;
+    width: 90%;
+}
+
+/* * ------------------------------------
+ * Estilos do Formulário de Cadastro
+ * ------------------------------------
+ */
+
+#cadastro-filme {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: var(--cor-fundo-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#cadastro-filme div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+input[type="text"],
+textarea {
+    /* MELHORIA: Simplificado para 100% pois o box-sizing já foi definido globalmente */
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    /* Removido: box-sizing: border-box; (agora está no * seletor) */
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* * ------------------------------------
+ * Estilos do Botão
+ * ------------------------------------
+ */
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--cor-secundaria);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.99);
+}
+
+/* * ------------------------------------
+ * Estilos da Lista de Filmes
+ * ------------------------------------
+ */
+
+#lista-filmes {
+    max-width: 900px;
+    margin: 20px auto 50px auto;
+    padding: 0 20px;
+}
+
+#lista-filmes > p {
+    /* Estilo para a mensagem inicial "Nenhum filme cadastrado ainda." */
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    border: 1px dashed var(--cor-borda);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Estilo para o cartão de filme (será gerado pelo JS) */
+.filme-card {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-left: 5px solid var(--cor-secundaria); /* Detalhe roxo na lateral */
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex; 
+    flex-direction: column;
+    position: relative;
+}
+
+.filme-card h3 {
+    margin-top: 0;
+    color: var(--cor-primaria);
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+.filme-card p {
+    margin: 5px 0 10px 0;
+    font-size: 0.95em;
+    color: var(--cor-texto);
+}
+
+/* Estilo para o botão de remover dentro do card (se adicionado futuramente) */
+.btn-remover {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--cor-erro);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s;
+}
+
+.btn-remover:hover {
+    background-color: #b02a37; 
+}
